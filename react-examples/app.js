@@ -10,34 +10,65 @@ import "./styles.css";
 
 const TWO_PI = Math.PI * 2;
 
+const DefaultsCircles = [
+  "teal",
+  "yellow",
+  "blue",
+  "orange",
+  "purple",
+  "skyblue",
+  "#c0c0c0",
+  "#eee",
+  "#fff"
+];
 const circlesWithCoords = [
   {
-    color: "green",
+    color: DefaultsCircles[Math.floor( Math.random()*DefaultsCircles.length-1)],
     x: 0,
     y: 0
   },
   {
-    color: "green",
+    color: DefaultsCircles[Math.floor( Math.random()*DefaultsCircles.length-1)],
     x: 0,
     y: 0
   },
   {
-    color: "green",
+    color: DefaultsCircles[Math.floor( Math.random()*DefaultsCircles.length-1)],
     x: 0,
     y: 0
   },
   {
-    color: "green",
+    color: DefaultsCircles[Math.floor( Math.random()*DefaultsCircles.length-1)],
     x: 0,
     y: 0
   },
   {
-    color: "green",
+    color: DefaultsCircles[Math.floor( Math.random()*DefaultsCircles.length-1)],
     x: 0,
     y: 0
   },
   {
-    color: "green",
+    color: DefaultsCircles[Math.floor( Math.random()*DefaultsCircles.length-1)],
+    x: 0,
+    y: 0
+  },
+  {
+    color: DefaultsCircles[Math.floor( Math.random()*DefaultsCircles.length-1)],
+    x: 0,
+    y: 0
+  },
+  {
+    color: DefaultsCircles[Math.floor( Math.random()*DefaultsCircles.length-1)],
+    x: 0,
+    y: 0
+  },
+  {
+    color: DefaultsCircles[Math.floor( Math.random()*DefaultsCircles.length-1)],
+    x: 0,
+    y: 0
+  },
+  {
+    color: DefaultsCircles[Math.floor( Math.random()*DefaultsCircles.length-1)],
     x: 0,
     y: 0
   }
@@ -48,14 +79,7 @@ circlesWithCoords.forEach((item, i) => {
 });
  
 function App() {
-  const DefaultsCircles = [
-    "teal",
-    "yellow",
-    "blue",
-    "orange",
-    "purple",
-    "skyblue"
-  ];
+  
   const [circles, setCircles] = useState(circlesWithCoords);
 
   const [{ x, y }, setXY] = useState({ x: 0, y: 0 });
@@ -87,6 +111,7 @@ function App() {
               className="circle"
               key={i}
               style={{
+                background: `${item.color}`,
                 top: `${item.x}px`,
                 left: `${item.y}px`
               }}
