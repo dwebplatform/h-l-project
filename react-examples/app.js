@@ -1,7 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useSprings, animated } from "react-spring";
+
+import _ from 'lodash';
 import swap from "lodash-move";
 import ReactDOM from "react-dom";
+
 
 import "./styles.css";
 
@@ -43,8 +46,7 @@ circlesWithCoords.forEach((item, i) => {
   item.x = 150 * Math.sin(((i + 1) * TWO_PI) / circlesWithCoords.length);
   item.y = -150 * Math.cos(((i + 1) * TWO_PI) / circlesWithCoords.length);
 });
-console.log(circlesWithCoords);
-
+ 
 function App() {
   const DefaultsCircles = [
     "teal",
@@ -62,7 +64,7 @@ function App() {
 
   useEffect(() => {
     let newOrderCircles = [...cirlcesRef.current];
-    newOrderCircles = swap(newOrderCircles, 0, 3);
+    newOrderCircles =  _.shuffle(newOrderCircles)
     cirlcesRef.current = newOrderCircles;
     setCircles(s => {
       return [...newOrderCircles];
